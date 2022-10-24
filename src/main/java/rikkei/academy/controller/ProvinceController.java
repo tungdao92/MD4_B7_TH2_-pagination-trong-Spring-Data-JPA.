@@ -12,8 +12,7 @@ import rikkei.academy.model.Customer;
 import rikkei.academy.model.Province;
 import rikkei.academy.service.customer.ICustomerService;
 import rikkei.academy.service.province.IProvinceService;
-
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 @Controller
@@ -99,7 +98,6 @@ public class ProvinceController {
             return new ModelAndView("/error.404");
         }
 
-//        Iterable<Customer> customers = customerService.findAllByProvince(provinceOptional.get());
         Page<Customer> customers = customerService.findAll(pageable);
 
         ModelAndView modelAndView = new ModelAndView("/province/view");
